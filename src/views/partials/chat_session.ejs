@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>User chat</title>
+  </head>
+  <body>
+    <% if(messages.length != 0) {%>
+    <ul id="messages">
+      <% for(let i = 0; i < messages.length; i++) { %> <% if (owner_id ==
+      messages[i].user_id) { %>
+      <li class="receiver"><%= messages[i].message %></li>
+      <% } else { %>
+      <li><%= messages[i].message %></li>
+      <% } %> <% } %>
+    </ul>
+    <%}else{%>
+    <ul id="messages"></ul>
+    <%}%>
+
+    <form method="" action="" class="chat_message">
+      <input name="message" id="message" autocomplete="off" />
+      <input id="send-message-button" type="submit" value="Send" />
+    </form>
+  </body>
+  <script>
+    $(document).ready(function() {
+      var uri = "<%= uri%>";
+      var owner = "<%= owner_id%>";
+      var member = "<%= member%>";
+      var session_id = "<%= session_id%>";
+      var owner_name = "<%= owner_name%>";
+      var session_object = {
+        uri: uri,
+        owner_id: owner,
+        member_id: member,
+        session_id: session_id
+      };
+      var obj = JSON.stringify(session_object);
+      var socket = io();
+
+      $("form").submit(function(e) {
+        e.preventDefault(); // prevents page reloading
+        const msg = $("#message").val();
+        socket.emit("chat message", {
+          msg: msg,
+          uri: uri,
+          owner: owner,
+          session_id: session_id,
+          owner_name: owner_name
+        });
+        $("#message").val("");
+        return false;
+      });
+
+      socket.on("chat message", msg => {
+        $("#messages").append($('<li class="receiver ">').text(msg));
+        location.reload();
+      });
+      socket.on("error-message", msg => {
+        alert(msg);
+      });
+
+      socket.emit("session", obj);
+
+      socket.on("user-connected", member => {
+        $("#messages").append(
+          $('<li class="receiver ">').text(`${member} connected`)
+        );
+      });
+      socket.emit("disconnect", uri);
+
+      //socket.on("redirect", destination => {
+      //window.location.href = destination;
+      //});
+    });
+  </script>
+</html>

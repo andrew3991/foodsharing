@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Foodsharing</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Foodsharing</h1>
+      <div class="header_formwrapper">
+        <form class="header_form" method="GET" action="/chat/chats_list">
+          <button class="header_submit" type="submit">Nachrichten</button>
+        </form>
+        <form class="header_form" method="post" action="/logout">
+          <button class="header_submit" type="submit">Logout <%= name %></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="header_space"></div>
+
+    <div class="food_wrapper">
+      <!-- integration of error messages -->
+    <%- include ('./error') %>
+
+    <form class="dashboard_button" method="GET" action="/dashboard">
+      <button class="dashboard_button" type="submit">Zurück zum Dashboard</button>
+    </form>
+
+    <!-- form -->
+    <h2 class="food_h2">Essen hinzufügen</h2>
+    <form id="create_food" method="post" action="/createfood">
+      <div>
+        <label class="form_description">Title</label>
+        <input class="form_input" name="title" id="title" value="" placeholder="Enter a title" type="text">
+        <br>
+        <label class="form_description">Description</label>
+        <input class="form_input" name="description" id="description" value="" placeholder="Enter a description" type="text">
+        <br>
+        <label class="form_description">Category</label>
+        <select class="form_input" name="category" id="category">
+          <% for(let i = 0; i < categories.length; i++) { %>
+            <option value="<%= categories[i] %>"><%= categories[i] %></option>
+          <% } %>
+        </select>
+        <br>
+        <label class="form_description">City</label>
+        <input class="form_input" name="city" id="city" value="" placeholder="Enter your city" type="text">
+        <br>
+        <label class="form_description">Zipcode</label>
+        <input class="form_input" name="zipcode" id="zipcode" value="" placeholder="Enter your zipcode" type="number">
+        <br>
+        <label class="form_description">Street</label>
+        <input class="form_input" name="street" id="street" value="" placeholder="Enter your street" type="text">
+        <br>
+        <label class="form_description">Streetnumber</label>
+        <input class="form_input" name="streetnumber" id="streetnumber" value="" placeholder="Enter your streetnumber" type="number">
+        <br>
+        <button class="form_submit" type="submit">Speichern</button class="form_input">
+      </div>
+    </form>
+    </div>
+  </body>
+</html>

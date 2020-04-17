@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodsharing</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <div class="header">
+    <h1>Foodsharing</h1>
+  </div>
+
+  <div class="header_space"></div>
+
+  <form id="login_form" method="post" action="/register">
+    <h1>Registrierung</h1>
+    <p>Erstelle einen Account, um am Foodsharing teilzunehmen</p>
+    <!-- integration of error messages -->
+    <%- include ('./partials/error') %>
+    <input id="register_firstname" type="text" name="firstname" value="" placeholder="firstname">
+    <input id="register_lastname" type="text" name="lastname" value="" placeholder="lastname">
+    <input id="register_email" type="text" name="email" value="" placeholder="email">
+    <input id="register_password" type="password" name="password" value="" placeholder="password">
+    <button id="register_submit" type="submit">Registrieren</button>
+  </form>
+  <form id="login_redirect" method="GET" action="/login">
+    <p>Du hast bereits einen Account? Hier geht's zum Login.</p>
+    <button id="redirect_register" type="submit">Zurück zum Login</button>
+  </form>
+</body>
+
+</html>

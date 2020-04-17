@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Foodsharing</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>Users</h1>
+    <% for(let i = 0; i < chats.length; i++) { %> <% for(let j = 0; j <
+    chats[i].length; j++) { %>
+    <article>
+      <% if (chats[i][j].member == auth_user) {%>
+      <p>
+        <a href="chat_session?receiver_id=<%= chats[i][j].owner %>"
+          ><%= chats[i][j].firstname %> <%= chats[i][j].lastname %></a
+        >
+      </p>
+      <%}else{%>
+      <p>
+        <a href="chat_session?receiver_id=<%= chats[i][j].member %>"
+          ><%= chats[i][j].firstname %> <%= chats[i][j].lastname %></a
+        >
+      </p>
+      <%}%>
+
+      <br />
+    </article>
+    <% } %> <% } %>
+  </body>
+</html>

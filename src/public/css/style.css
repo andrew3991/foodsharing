@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font: 13px Helvetica, Arial;
+}
+
+p {
+  margin: 8px 0 8px 0;
+}
+
+h1 {
+  margin: 8px 0 8px 0;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 8px 0;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 8px 0;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 8px 0;
+}
+
+.error {
+  color: red;
+}
+
+/* Header */
+.header {
+  display: flex;
+  background-color: #333;
+  position: fixed;
+  color: #FFF;;
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+}
+
+.header_formwrapper {
+  display: flex;
+  margin-left: auto;
+}
+
+.header_submit {
+  width: auto;
+  margin-left: 8px;
+}
+
+.header_space {
+  height: 100px;
+}
+
+/* Login */
+#page_wrapper {
+  width: 100%;
+  padding: 20px;
+}
+
+#login_form {
+  width: 300px;
+  margin: auto;
+  padding: 8px;
+}
+
+#login_redirect {
+  width: 300px;
+  margin: auto;
+  padding: 8px;
+}
+
+/* Dashboard */
+.dashboard_wrapper {
+  display: flex;
+}
+
+.dashboard_ownfood {
+  width: 40%;
+  margin: 0 30px 0 30px;
+}
+
+.dashboard_listfood {
+  width: 60%;
+  margin: 0 30px 0 30px;
+}
+
+.food_item {
+  margin-top: 30px;
+}
+
+#search_form {
+  display: flex;
+}
+
+#search_phrase {
+  width: 60%;
+  margin: 0 8px 0 0;
+}
+
+#search_category {
+  width: 25%;
+  margin: 0 8px 0 8px;
+}
+
+#search_submit {
+  width: 15%;
+  margin: 0 0 0 8px;
+}
+
+#create_submit {
+  margin: 0;
+}
+
+/* Food */
+
+.food_wrapper {
+  margin: 0 30px;
+}
+
+.dashboard_button {
+  width: 300px;
+}
+
+.form_description {
+  display: inline-block;
+  width: 100px;
+}
+
+.form_input {
+  width: 200px;
+}
+
+.form_submit {
+  width: 300px;
+}
+
+/* chat */
+.chat_message {
+  background: #000;
+  padding: 3px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.chat_message input {
+  border: 0;
+  padding: 10px;
+  width: 90%;
+  margin-right: 0.5%;
+}
+#send-message-button {
+  width: 9%;
+  background: rgb(171, 187, 255);
+  border: none;
+  padding: 10px;
+  margin-right: 0;
+}
+
+#messages {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.receiver {
+  background: rgb(123, 196, 133);
+}
+
+#messages li {
+  padding: 5px 10px;
+}

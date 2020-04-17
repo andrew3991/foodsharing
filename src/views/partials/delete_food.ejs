@@ -1,0 +1,40 @@
+<!-- https://github.com/expressjs/method-override/issues/13 -->
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Foodsharing</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Foodsharing</h1>
+      <div class="header_formwrapper">
+        <form class="header_form" method="GET" action="/chat/chats_list">
+          <button class="header_submit" type="submit">Nachrichten</button>
+        </form>
+        <form class="header_form" method="post" action="/logout">
+          <button class="header_submit" type="submit">Logout <%= name %></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="header_space"></div>
+
+    <div class="food_wrapper">
+      <form class="dashboard_button" method="GET" action="/dashboard">
+        <button class="dashboard_button" type="submit">Zurück zum Dashboard</button>
+      </form>
+  
+      <!-- form -->
+      <h2 class="food_h2">Essen löschen</h2 class="food_h2">
+      <p>Do you really want to delete this food?</p>
+      <h4><%= foodItem.title%></h4>
+      <form id="delete_food" method="post" action="/deletefood/<%= foodItem.id%>">
+        <div>
+          <button class="dashboard_button" type="submit">Löschen</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

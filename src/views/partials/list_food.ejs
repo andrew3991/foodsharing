@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Foodsharing</title>
+</head>
+
+<body>
+  <h1>Eigenes Essen</h1>
+
+  <form id="create_form" method="get" action="/createfood">
+    <button id="create_submit" type="submit">Create Food</button>
+  </form>
+
+  <% for(let i = 0; i < userFoodItems.length; i++) { %>
+  <article class="food_item">
+    <h2><%= userFoodItems[i].title %></h2>
+    <p><%= userFoodItems[i].description %></p>
+    <p>Category: <%= userFoodItems[i].category %></p>
+    <p>Stadt: <%= userFoodItems[i].city %></p>
+    <p>Postleitzahl: <%= userFoodItems[i].zipcode %></p>
+    <p>Straße: <%= userFoodItems[i].street %></p>
+    <p>Straßennummer: <%= userFoodItems[i].streetnumber %></p>
+
+    <!-- link for updating food item -->
+    <a href="/updatefood/<%= userFoodItems[i].id%>">Bearbeiten</a>
+
+    <!-- link for deleting food item -->
+    <a href="/deletefood/<%= userFoodItems[i].id%>">Löschen</a>
+    <br>
+  </article>
+  <% } %>
+</body>
+
+</html>

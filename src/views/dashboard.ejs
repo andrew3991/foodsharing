@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodsharing</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <div class="header">
+    <h1>Foodsharing</h1>
+    <div class="header_formwrapper">
+      <form class="header_form" method="GET" action="/chat/chats_list">
+        <button class="header_submit" type="submit">Nachrichten</button>
+      </form>
+      <form class="header_form" method="post" action="/logout">
+        <button class="header_submit" type="submit">Logout <%= name %></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="header_space"></div>
+
+  <div class="dashboard_wrapper">
+    <div class="dashboard_ownfood">
+      <!-- integration of user food list -->
+      <%- include ('./partials/list_food') %>
+    </div>
+    <div class="dashboard_listfood">
+      <!-- integration of search food list -->
+      <%- include ('./partials/search_list') %>
+    </div>
+  </div>
+  <!-- link for food form -->
+  <!-- <a href="/createfood">New Food Item</a> -->
+</body>
+
+</html>

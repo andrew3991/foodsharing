@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Foodsharing</title>
+  </head>
+
+  <body>
+    <h1>Nach Essen Suchen</h1>
+    <form id="search_form" method="post" action="/dashboard">
+      <input
+        id="search_phrase"
+        type="text"
+        name="search"
+        value=""
+        placeholder=""
+      />
+      <select id="search_category" name="category">
+        <!-- <option value="" disabled selected hidden>Kategorie</option> -->
+        <option></option>
+        <% for (let i = 0; i < categories.length; i++) { %>
+        <option><%= categories[i] %></option>
+        <% } %>
+      </select>
+      <button id="search_submit" type="submit">Suchen</button>
+    </form>
+    <div class="filter">
+      <% if(search.length > 0 || category.length > 0) { %>
+      <p>
+        Suche <% if(search.length > 0) { %>nach "<%= search %>"<% } %> <%
+        if(category.length > 0) { %>in <%= category %><% } %>
+      </p>
+      <% } %>
+    </div>
+    <% for(let i = 0; i < searchListItems.length; i++) { %>
+    <article class="food_item">
+      <h2><%= searchListItems[i].title %></h2>
+      <p><%= searchListItems[i].description %></p>
+      <p>Category: <%= searchListItems[i].category %></p>
+      <p>Stadt: <%= searchListItems[i].city %></p>
+      <p>Postleitzahl: <%= searchListItems[i].zipcode %></p>
+      <p>Straße: <%= searchListItems[i].street %></p>
+      <p>Straßennummer: <%= searchListItems[i].streetnumber %></p>
+      <p>
+        Besitzer: <%= searchListItems[i].user.firstname %> <%=
+        searchListItems[i].user.lastname %>
+      </p>
+      <p>
+        Send a message to
+        <a
+          href="chat/chat_session?receiver_id=<%= searchListItems[i].user_id %>"
+        >
+          <%= searchListItems[i].user.firstname %></a
+        >
+      </p>
+      <br />
+    </article>
+    <% } %>
+  </body>
+</html>

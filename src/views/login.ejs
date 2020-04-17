@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodsharing</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <div class="header">
+    <h1>Foodsharing</h1>
+  </div>
+
+  <div class="header_space"></div>
+  
+  <div id="page_wrapper">
+    <form id="login_form" method="post" action="/login">
+      <h1>Login</h1>
+      <p>Melde Dich an, um am Foodsharing teilzunehmen</p>
+      <% if (message) { %>
+      <p class="error"><%= message %></p>
+      <% } %>
+      <input id="login_email" type="text" name="email" value="" placeholder="email">
+      <input id="login_password" type="password" name="password" value="" placeholder="password">
+      <button id="login_submit" type="submit">Login</button>
+    </form>
+    <form id="login_redirect" method="GET" action="/register">
+      <p>Du hast noch keinen Account? Hier geht's zur Registrierung.</p>
+      <button id="redirect_register" type="submit">Registrieren</button>
+    </form>
+  </div>
+</body>
+
+</html>

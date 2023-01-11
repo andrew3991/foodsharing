@@ -23,7 +23,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "jest": "^24.9.0",
-    "knex": "^0.20.3",
+    "knex": "^2.4.0",
     "mock-knex": "^0.4.7",
     "req-flash": "0.0.3",
     "sqlite3": "^4.1.0"
